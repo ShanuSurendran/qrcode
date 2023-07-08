@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <h3>QRCODE GENERATOR</h3>
+        <form action="/send" method="post">
+            {% csrf_token %}
+            <input type="text" name="data" placeholder="Enter Your Url"><br>
+            <button style="background-color:#ff3300">Get</button>
+        </form>
+    <form action="/download" method="post">
+        {% csrf_token %}
+        <button style="background-color:#0033cc">Download</button>
+    </form>
+
+    {% if img %}
+    <img src="{% static 'C:\Users\SHANU\Rapidapi_1\qrcodeproject\qrcodeproject\static\images\test.png' %}" style="width:200px;height:200px;" class="center" alt="no image">
+{% endif %}
+</div>
+</body>
+</html>
